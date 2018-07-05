@@ -35,4 +35,45 @@ body {
     background-position: top;
     /* use a polygon to crop the size of the background */
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    /* .header is parent of .logo-box, so we use relative posisition to be able to use it as a reference when positioning the children */
+    position: relative;
+}
+
+.logo-box {
+    /* the point of origin for top, left.. when using absolute position is the parent element, if it isn't also absolute */
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+.text-box {
+    /* magic trick to center elements (or 40% from top in this case) */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.heading-primary--main {
+    /* spans are inline as deafault, changing it to block puts it on it's own line by letting it occypy 100% of the parent element width */
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+}
+
+.heading-primary--sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
 }
