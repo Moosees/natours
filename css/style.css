@@ -5,13 +5,16 @@ Medium green: #55c57a
 Dark green: #28b485
 */
 
-/* Browser reset without normalize.css */
-
-* {
+/* Browser reset without normalize.css,
+the * marker does not include pseudo elements, so we add those as well */
+*,
+*::after,
+*::before {
     padding: 0;
     margin: 0;
-    /* border-box makes borders and padding not add to the total size of elements */
-    box-sizing: border-box;
+    /* use inherited box-sizing as default for all elements, 
+    without this line box-sizing is not inherited */
+    box-sizing: inherit;
 }
 
 html {
@@ -29,6 +32,8 @@ body {
     color: #777;
     /* padding is not inherited */
     padding: 3rem;
+    /* border-box makes borders and padding not add to the total size of elements, body box-sizing sets the default method to use */
+    box-sizing: border-box;
 }
 
 .header {
