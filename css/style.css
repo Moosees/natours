@@ -1,8 +1,200 @@
 /*
 COLORS:
-
 Light green: #7ed56f
 Medium green: #55c57a
 Dark green: #28b485
-
 */
+
+/* Browser reset without normalize.css */
+* {
+    padding: 0;
+    margin: 0;
+    /* border-box makes borders and padding not add to the total size of elements */
+    box-sizing: border-box;
+}
+
+/* everything on body is inherited by children, better practise to use inheritance than apply on everything */
+body {
+    font-family: "Lato", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #777;
+    /* padding is not inherited */
+    padding: 30px;
+}
+
+.header {
+    /* vh means % of viewport */
+    height: 95vh;
+    /* we can use several backgrounds at the same time, first mentioned is on top */
+    background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)),
+    url(../img/hero.jpg);
+    background-size: cover;
+    /* makes top of image align with top of viewport */
+    background-position: top;
+    /* use a polygon to crop the size of the background */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    /* .header is parent of .logo-box, so we use relative posisition to be able to use it as a reference when positioning the children */
+    position: relative;
+}
+
+.logo-box {
+    /* the point of origin for top, left.. when using absolute position is the parent element, if it isn't also absolute */
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+.text-box {
+    /* magic trick to center elements (or 40% from top in this case) */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* centers the button that is inline-block */
+    text-align: center;
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+    /* fix for shaky animations, needs more research */
+    backface-visibility: hidden;
+    /* gives space between h1 and button */
+    margin-bottom: 60px;
+}
+
+.heading-primary--main {
+    /* spans are inline as deafault, changing it to block puts it on it's own line by letting it occypy 100% of the parent element width */
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    /* links an animation to an element, can be used on special selectors like :hover */
+    animation-name: moveInLeft;
+    animation-duration: 1.2s;
+    animation-timing-function: ease-out;
+}
+
+.heading-primary--sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+    /* short format for animation (third param is delay) */
+    animation: moveInRight 1.2s 0.15s ease-out;
+}
+
+/* Syntax for defining animations. The %-values defines points in the animation lifecycle where something should happen */
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    80% {
+        transform: translateX(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* :link pseudo class adds the special link state (not visited),
+:visited in the same declaration to not change anything when visited */
+.btn:link,
+.brn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    /* first top and bottom, second left and right */
+    padding: 15px 40px;
+    display: inline-block;
+    /* round edges */
+    border-radius: 100px;
+    transition: all 0.2s;
+    /* set to relative so the ::after have something to relate to */
+    position: relative;
+    backface-visibility: hidden;
+}
+
+/* hover pseudo class shows when mouse is over the element */
+.btn:hover {
+    transform: translateY(-3px);
+    /* x-offset, y-offset, blur, color */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* active pseudo class is used when the element is clicked */
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* after creates a pseudo element that is (the last) child of the element */
+.btn::after {
+    /* we need to specify content and display on ::after pseudo elements or they won't show up */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* moves ::after behind the parent */
+    z-index: -1;
+    transition: all 0.4s;
+}
+
+/* hover and after can be combined */
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn--white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn--white::after {
+    background-color: #fff;
+}
+
+.btn-move-in-bottom {
+    animation: moveInBottom 0.5s 0.5s ease-out;
+    /* will apply the 0% animation properties at page load */
+    animation-fill-mode: backwards;
+}
