@@ -56,6 +56,8 @@ body {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+    /* centers the button that is inline-block */
+    text-align: center;
 }
 
 .heading-primary {
@@ -63,6 +65,8 @@ body {
     text-transform: uppercase;
     /* fix for shaky animations, needs more research */
     backface-visibility: hidden;
+    /* gives space between h1 and button */
+    margin-bottom: 60px;
 }
 
 .heading-primary--main {
@@ -115,4 +119,82 @@ body {
         opacity: 1;
         transform: translateX(0);
     }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* :link pseudo class adds the special link state (not visited),
+:visited in the same declaration to not change anything when visited */
+.btn:link,
+.brn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    /* first top and bottom, second left and right */
+    padding: 15px 40px;
+    display: inline-block;
+    /* round edges */
+    border-radius: 100px;
+    transition: all 0.2s;
+    /* set to relative so the ::after have something to relate to */
+    position: relative;
+    backface-visibility: hidden;
+}
+
+/* hover pseudo class shows when mouse is over the element */
+.btn:hover {
+    transform: translateY(-3px);
+    /* x-offset, y-offset, blur, color */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* active pseudo class is used when the element is clicked */
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* after creates a pseudo element that is (the last) child of the element */
+.btn::after {
+    /* we need to specify content and display on ::after pseudo elements or they won't show up */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* moves ::after behind the parent */
+    z-index: -1;
+    transition: all 0.4s;
+}
+
+/* hover and after can be combined */
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn--white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn--white::after {
+    background-color: #fff;
+}
+
+.btn-move-in-bottom {
+    animation: moveInBottom 0.5s 0.5s ease-out;
+    /* will apply the 0% animation properties at page load */
+    animation-fill-mode: backwards;
 }
