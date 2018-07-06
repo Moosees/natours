@@ -6,6 +6,7 @@ Dark green: #28b485
 */
 
 /* Browser reset without normalize.css */
+
 * {
     padding: 0;
     margin: 0;
@@ -13,23 +14,28 @@ Dark green: #28b485
     box-sizing: border-box;
 }
 
+html {
+    /* sets root font size to a easy to handle value for use with rems,
+    62.5% is equial to 10px if user settings is 16px (most common) */
+    font-size: 62.5%;
+}
+
 /* everything on body is inherited by children, better practise to use inheritance than apply on everything */
+
 body {
     font-family: "Lato", sans-serif;
-    font-size: 16px;
     font-weight: 400;
     line-height: 1.7;
     color: #777;
     /* padding is not inherited */
-    padding: 30px;
+    padding: 3rem;
 }
 
 .header {
     /* vh means % of viewport */
     height: 95vh;
     /* we can use several backgrounds at the same time, first mentioned is on top */
-    background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)),
-    url(../img/hero.jpg);
+    background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
     background-size: cover;
     /* makes top of image align with top of viewport */
     background-position: top;
@@ -42,12 +48,12 @@ body {
 .logo-box {
     /* the point of origin for top, left.. when using absolute position is the parent element, if it isn't also absolute */
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
 .logo {
-    height: 35px;
+    height: 3.5rem;
 }
 
 .text-box {
@@ -66,15 +72,15 @@ body {
     /* fix for shaky animations, needs more research */
     backface-visibility: hidden;
     /* gives space between h1 and button */
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 }
 
 .heading-primary--main {
     /* spans are inline as deafault, changing it to block puts it on it's own line by letting it occypy 100% of the parent element width */
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
     /* links an animation to an element, can be used on special selectors like :hover */
     animation-name: moveInLeft;
     animation-duration: 1.2s;
@@ -83,24 +89,23 @@ body {
 
 .heading-primary--sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
     /* short format for animation (third param is delay) */
     animation: moveInRight 1.2s 0.15s ease-out;
 }
 
 /* Syntax for defining animations. The %-values defines points in the animation lifecycle where something should happen */
+
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
-
     80% {
-        transform: translateX(10px);
+        transform: translateX(1rem);
     }
-
     100% {
         opacity: 1;
         transform: translateX(0);
@@ -110,10 +115,10 @@ body {
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
     80% {
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
     100% {
         opacity: 1;
@@ -124,7 +129,7 @@ body {
 @keyframes moveInBottom {
     0% {
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(4rem);
     }
     100% {
         opacity: 1;
@@ -134,15 +139,17 @@ body {
 
 /* :link pseudo class adds the special link state (not visited),
 :visited in the same declaration to not change anything when visited */
+
 .btn:link,
 .brn:visited {
+    font-size: 1.6rem;
     text-transform: uppercase;
     text-decoration: none;
     /* first top and bottom, second left and right */
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block;
     /* round edges */
-    border-radius: 100px;
+    border-radius: 10rem;
     transition: all 0.2s;
     /* set to relative so the ::after have something to relate to */
     position: relative;
@@ -150,26 +157,29 @@ body {
 }
 
 /* hover pseudo class shows when mouse is over the element */
+
 .btn:hover {
-    transform: translateY(-3px);
+    transform: translateY(-0.3rem);
     /* x-offset, y-offset, blur, color */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 /* active pseudo class is used when the element is clicked */
+
 .btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 /* after creates a pseudo element that is (the last) child of the element */
+
 .btn::after {
     /* we need to specify content and display on ::after pseudo elements or they won't show up */
     content: "";
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -179,6 +189,7 @@ body {
 }
 
 /* hover and after can be combined */
+
 .btn:hover::after {
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0;
