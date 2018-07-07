@@ -50,18 +50,18 @@ body {
     position: relative;
 }
 
-.logo-box {
+.header__logo-box {
     /* the point of origin for top, left.. when using absolute position is the parent element, if it isn't also absolute */
     position: absolute;
     top: 4rem;
     left: 4rem;
 }
 
-.logo {
+.header__logo {
     height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
     /* magic trick to center elements (or 40% from top in this case) */
     position: absolute;
     top: 40%;
@@ -209,7 +209,7 @@ body {
     background-color: #fff;
 }
 
-.btn-move-in-bottom {
+.btn--move-in-bottom {
     animation: moveInBottom 0.5s 0.5s ease-out;
     /* will apply the 0% animation properties at page load */
     animation-fill-mode: backwards;
