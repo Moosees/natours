@@ -3,6 +3,8 @@ $color-primary: #7ed56f;
 $color-primary-light: #55c57a;
 $color-primary-dark: #28b485;
 $color-grey-dark: #777;
+$color-white: #fff;
+$color-black: #000;
 // Browser reset without normalize.css, the * marker does not include pseudo elements, so we add those as well
 *,
 *::after,
@@ -55,7 +57,7 @@ body {
 }
 
 .heading-primary {
-    color: #fff;
+    color: $color-white;
     text-transform: uppercase;
     backface-visibility: hidden; // fix for shaky animations
     margin-bottom: 6rem; // gives space between h1 and button
@@ -137,13 +139,13 @@ body {
 // hover pseudo class shows when mouse is over the element
 .btn:hover {
     transform: translateY(-0.3rem);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); // x-offset, y-offset, blur, color
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2); // x-offset, y-offset, blur, color
 }
 
 // active pseudo class is used when the element is clicked
 .btn:active {
     transform: translateY(-0.1rem);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
 }
 
 // after creates a pseudo element that is (the last) child of the element
@@ -168,12 +170,12 @@ body {
 }
 
 .btn--white {
-    background-color: #fff;
+    background-color: $color-white;
     color: $color-grey-dark;
 }
 
 .btn--white::after {
-    background-color: #fff;
+    background-color: $color-white;
 }
 
 .btn--move-in-bottom {
