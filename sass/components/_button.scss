@@ -1,0 +1,52 @@
+.btn {
+    // :link pseudo class adds the special link state (not visited),
+    // :visited in the same declaration to not change anything when visited
+    &:link,
+    &:visited {
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem; // first top and bottom, second left and right
+        display: inline-block;
+        border-radius: 10rem; // round edges
+        transition: all 0.2s;
+        position: relative; // set to relative so the ::after have something to relate to
+        backface-visibility: hidden;
+    } // hover pseudo class shows when mouse is over the element
+    &:hover {
+        transform: translateY(-0.3rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2); // x-offset, y-offset, blur, color
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    } // active pseudo class is used when the element is clicked
+    &:active {
+        transform: translateY(-0.1rem);
+        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    } // after creates a pseudo element that is (the last) child of the element
+    &::after {
+        // we need to specify content and display on ::after pseudo elements or they won't show up
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1; // moves ::after behind the parent
+        transition: all 0.4s;
+    } // hover and after can be combined
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+        &::after {
+            background-color: $color-white;
+        }
+    }
+    &--move-in-bottom {
+        animation: moveInBottom 0.5s 0.5s ease-out;
+        animation-fill-mode: backwards; // will apply the 0% animation properties at page load
+    }
+}

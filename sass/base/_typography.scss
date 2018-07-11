@@ -1,0 +1,30 @@
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: $color-grey-dark;
+    padding: 3rem; // padding is not inherited
+}
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+    backface-visibility: hidden; // fix for shaky animations
+    margin-bottom: 6rem; // gives space between h1 and button
+    &--main {
+        display: block; // spans are inline as deafault, changing it to block puts it on it's own line by letting it occypy 100% of the parent element width
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+        animation-name: moveInLeft; // links an animation to an element, can be used on special selectors like :hover
+        animation-duration: 1.2s;
+        animation-timing-function: ease-out;
+    }
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+        animation: moveInRight 1.2s 0.15s ease-out; // short format for animation (third param is delay)
+    }
+}
