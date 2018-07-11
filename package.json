@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+    "compile:sass": "sass sass/main.scss css/style.css --watch --poll"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/Moosees/natours#readme",
   "devDependencies": {
-    "node-sass": "^4.9.2"
+    "sass": "^1.9.0"
   }
 }
