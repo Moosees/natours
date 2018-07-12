@@ -1,4 +1,5 @@
-@mixin clearfix { // prevents overflow outside of containers due to lack of height.
+@mixin clearfix {
+    // prevents overflow outside of containers due to lack of height.
     &::after {
         content: ""; // shows the pseudoelement.
         display: table; // clearfix hack.
