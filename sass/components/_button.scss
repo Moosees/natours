@@ -3,27 +3,27 @@
     // :visited in the same declaration to not change anything when visited
     &:link,
     &:visited {
-        font-size: 1.6rem;
+        font-size: $font-size-default;
         text-transform: uppercase;
         text-decoration: none;
         padding: 1.5rem 4rem; // first top and bottom, second left and right
         display: inline-block;
         border-radius: 10rem; // round edges
-        transition: all 0.2s;
+        transition: all .2s;
         position: relative; // set to relative so the ::after have something to relate to
         backface-visibility: hidden;
     } // hover pseudo class shows when mouse is over the element
     &:hover {
-        transform: translateY(-0.3rem);
-        box-shadow: 0 1rem 2rem rgba($color-black, 0.2); // x-offset, y-offset, blur, color
+        transform: translateY(-.3rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, .2); // x-offset, y-offset, blur, color
         &::after {
             transform: scaleX(1.4) scaleY(1.6);
             opacity: 0;
         }
     } // active pseudo class is used when the element is clicked
     &:active {
-        transform: translateY(-0.1rem);
-        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+        transform: translateY(-.1rem);
+        box-shadow: 0 .5rem 1rem rgba($color-black, .2);
     } // after creates a pseudo element that is (the last) child of the element
     &::after {
         // we need to specify content and display on ::after pseudo elements or they won't show up
@@ -36,7 +36,7 @@
         top: 0;
         left: 0;
         z-index: -1; // moves ::after behind the parent
-        transition: all 0.4s;
+        transition: all .4s;
     } // hover and after can be combined
     &--white {
         background-color: $color-white;
@@ -46,7 +46,30 @@
         }
     }
     &--move-in-bottom {
-        animation: moveInBottom 0.5s 0.5s ease-out;
+        animation: moveInBottom .5s .5s ease-out;
         animation-fill-mode: backwards; // will apply the 0% animation properties at page load
+    }
+}
+
+.btn-text {
+    &:link,
+    &:visited {
+        font-size: $font-size-default;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+        transition: all .2s;
+    }
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black, .15);
+        transform: translateY(-.2rem);
+    }
+    &:active {
+        box-shadow: 0 .5rem 1rem rgba($color-black, .15);
+        transform: translateY(0);
     }
 }
