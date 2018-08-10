@@ -6,3 +6,10 @@
         clear: both; // clears floats.
     }
 }
+
+@mixin text-gradient-to-right($color-left, $color-right) {
+    display: inline-block; // block is only as big as the elements inside it.
+    background-image: linear-gradient(to right, $color-left, $color-right);
+    -webkit-background-clip: text; // only shows the background-image where the text is.
+    color: transparent; // shows the background-image through the text.
+}
