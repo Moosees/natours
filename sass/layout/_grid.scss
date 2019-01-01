@@ -15,6 +15,9 @@
     .col-1-of-2 {
         width: calc((100% - #{$gutter-horizontal}) / 2); //calc is a native css function, so we can mix units without problems.
     }
+    .col-1-of-3 {
+        width: calc((100% - #{$gutter-horizontal} * 2) / 3);
+    }
     .col-1-of-4 {
         width: calc((100% - #{$gutter-horizontal} * 3) / 4);
     }
