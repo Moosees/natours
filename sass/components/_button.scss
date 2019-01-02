@@ -45,6 +45,13 @@
             background-color: $color-white;
         }
     }
+    &--green {
+        background-color: $color-primary;
+        color: $color-white;
+        &::after {
+            background-color: $color-primary;
+        }
+    }
     &--move-in-bottom {
         animation: moveInBottom .5s .5s ease-out;
         animation-fill-mode: backwards; // will apply the 0% animation properties at page load
