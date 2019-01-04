@@ -1,0 +1,58 @@
+.form {
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    &__input {
+        font-size: 1.5rem;
+        // browsers sets default for form fonts, we can get around that.
+        font-family: inherit;
+        // same thing with font color.
+        color: inherit;
+        // more padding on the sides usually look better, good start point.
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgba($color-white, .5);
+        border: none;
+        // transparent border on unfocused inputs so they don't bump down other elements when focused.
+        border-bottom: 3px solid transparent;
+        width: 90%;
+        display: block;
+        transition: border-bottom .3s;
+
+        // browsers sets a default outline for form inputs.
+        &:focus {
+            outline: none;
+            // we still need a indicator of what is focused.
+            box-shadow: 0 1rem 2rem rgba($color-black, .1);
+            border-bottom: 3px solid $color-primary;
+        }
+
+        // invalid is a pseudoclass that only targets inputs with invalid inputs. Pseudoclasses can be stacked.
+        &:focus:invalid {
+            border-bottom: 3px solid $color-secondary-dark;
+        }
+
+        // pseudoelement that targets the placeholder in inputs.
+        &::-webkit-input-placeholder {
+            color: $color-grey-dark-2;
+        }
+    }
+
+    &__label {
+        font-size: 1.6rem;
+        margin-left: 2rem;
+        margin-top: .6rem;
+        display: block;
+        transition: all .3s;
+    }
+
+    // placeholder-shown only selects elements when HTML placeholder is visible.
+    // + means adjacent sibling selector, selecting the sibling after the selected HTML element.
+    &__input:placeholder-shown + &__label {
+        opacity: 0;
+        // opacity to animate, visiblily to acutally hide the element.
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+}
