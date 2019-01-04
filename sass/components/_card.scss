@@ -16,7 +16,7 @@
         backface-visibility: hidden; // hides the back side of the cards.
         border-radius: 3px;
         overflow: hidden; // to stop images from overflowing outside the parent box (the rounded corners).
-        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+        box-shadow: $box-shadow-default;
 
         &--front {
             background-color: $color-white;
