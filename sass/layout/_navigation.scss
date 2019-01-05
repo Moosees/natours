@@ -1,0 +1,158 @@
+.navigation {
+    // NAVIGATION MENU
+    &__checkbox {
+        display: none;
+    }
+
+    &__button {
+        background-color: $color-white;
+        // a bit bigger than the background so it's sure to cover it.
+        height: 7rem;
+        width: 7rem;
+        position: fixed;
+        // 0.5rem overflow on each side (compared to background).
+        top: 6rem;
+        right: 6rem;
+        border-radius: 50%;
+        z-index: 3000;
+        box-shadow: 0 1rem 3rem rgba($color-black, .1);
+        // centering the nav button lines.
+        text-align: center;
+        cursor: pointer;
+    }
+
+    &__background {
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        // takes element out of flow, useful for navigation buttons.
+        position: fixed;
+        top: 6.5rem;
+        right: 6.5rem;
+        // radial gradients starts from middle and goes out.
+        background-image: radial-gradient($color-primary-light, $color-primary-dark);
+        z-index: 1000;
+        transition: transform .7s cubic-bezier(.66, 1.19, .68, .29);
+    }
+
+    // ~ for general sibling (doesn't have to be the one right after in HTML).
+    &__checkbox:checked ~ &__background {
+        transform: scale(80)
+    }
+
+    &__nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 2000;
+        height: 100vh;
+        // width 0 makes it "invisible" (cannot be clicked).
+        width: 0;
+        // opacity for animation.
+        opacity: 0;
+        transition: all .6s cubic-bezier(.68, -.15, .265, .55);
+    }
+
+    &__checkbox:checked ~ &__nav {
+        opacity: 1;
+        width: 100%;
+    }
+
+    &__list {
+        @include center-horizontal-vertical;
+        backface-visibility: hidden;
+        list-style: none;
+        text-align: center;
+        width: 100%;
+    }
+
+    &__item {
+        margin: 1rem;
+    }
+
+    &__link {
+        &:link,
+        &:visited {
+            display: inline-block;
+            font-size: 3rem;
+            font-weight: 300;
+            padding: 1rem 2rem;
+            color: $color-white;
+            text-decoration: none;
+            text-transform: uppercase;
+            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+            // background-size can be used to animate/move background images.
+            background-size: 230%;
+            transition: all .4s;
+
+            span {
+                margin-right: 1.6rem;
+                display: inline-block;
+            }
+        }
+
+        &:hover,
+        &:active {
+            // the actual animation comes from moving the now larger backgrounds.
+            background-position: 100%;
+            transform: translateX(1rem);
+            color: $color-primary;
+        }
+    }
+
+    // NAVIGATION ICON
+    &__icon {
+        // the icon is one line, the before pseudo is one line and the after pseudo is the third line.
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &,
+        &::before,
+        &::after {
+            width: 3rem;
+            height: 2px;
+            background-color: $color-grey-dark-3;
+            display: inline-block;
+            transition: all .4s ease;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+        }
+
+        &::before {
+            top: -.8rem;
+        }
+
+        &::after {
+            top: .8rem;
+        }
+    }
+
+    // hover animations for the top and bottom lines.
+    &__button:hover &__icon::before {
+        top: -1rem;
+    }
+
+    &__button:hover &__icon::after {
+        top: 1rem;
+    }
+
+    &__checkbox:checked + &__button &__icon {
+        background-color: transparent;
+    }
+
+    &__checkbox:checked + &__button &__icon::before {
+        top: 0;
+        transform: rotate(-135deg);
+    }
+
+    &__checkbox:checked + &__button &__icon::after {
+        top: 0;
+        transform: rotate(135deg);
+    }
+}
