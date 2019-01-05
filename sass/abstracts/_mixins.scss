@@ -13,3 +13,11 @@
     -webkit-background-clip: text; // only shows the background-image where the text is.
     color: transparent; // shows the background-image through the text.
 }
+
+    // 
+@mixin center-horizontal-vertical {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
