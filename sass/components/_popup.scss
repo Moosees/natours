@@ -1,0 +1,51 @@
+.popup {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba($color-black, .8);
+    z-index: 9000;
+
+    &__content {
+        @include center-horizontal-vertical;
+        width: 75%;
+        background-color: $color-white;
+        box-shadow: $box-shadow-default;
+        border-radius: $border-radius-default;
+        // parent is a table. Or at least behaves like one.
+        display: table;
+    }
+
+    &__left {
+        width: 33.333333%;
+        display: table-cell;
+    }
+
+    &__right {
+        width: 66.666666%;
+        // children are table cells.
+        display: table-cell;
+        // the table behavoiur lets us line up both boxes with same height.
+        vertical-align: middle;
+        padding: 3rem 5rem;
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+    }
+
+    &__text {
+        font-size: $font-size-small;
+        margin-bottom: 4rem;
+        // splits the text up in x columns.
+        column-count: 2;
+        // space between the columns.
+        column-gap: 4rem;
+        // line between the columns.
+        column-rule: 1px solid $color-grey-light-2;
+        // automatically inserts hyphens (needs html lang="<language>")
+        hyphens: auto;
+    }
+}
