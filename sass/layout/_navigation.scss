@@ -1,4 +1,5 @@
 .navigation {
+
     // NAVIGATION MENU
     &__checkbox {
         display: none;
@@ -16,8 +17,7 @@
         border-radius: 50%;
         z-index: 3000;
         box-shadow: 0 1rem 3rem rgba($color-black, .1);
-        // centering the nav button lines.
-        text-align: center;
+        text-align: center; // centering the nav button lines because they are text.
         cursor: pointer;
     }
 
@@ -25,18 +25,16 @@
         height: 6rem;
         width: 6rem;
         border-radius: 50%;
-        // takes element out of flow, useful for navigation buttons.
-        position: fixed;
+        position: fixed; // takes element out of flow, useful for navigation buttons.
         top: 6.5rem;
         right: 6.5rem;
-        // radial gradients starts from middle and goes out.
-        background-image: radial-gradient($color-primary-light, $color-primary-dark);
+        background-image: radial-gradient($color-primary-light, $color-primary-dark); // radial gradients starts from middle and goes out.
         z-index: 1000;
         transition: transform .7s cubic-bezier(.66, 1.19, .68, .29);
     }
 
     // ~ for general sibling (doesn't have to be the one right after in HTML).
-    &__checkbox:checked ~ &__background {
+    &__checkbox:checked~&__background {
         transform: scale(80)
     }
 
@@ -46,14 +44,12 @@
         right: 0;
         z-index: 2000;
         height: 100vh;
-        // width 0 makes it "invisible" (cannot be clicked).
-        width: 0;
-        // opacity for animation.
-        opacity: 0;
+        width: 0; // width 0 makes it unclickable even when opaque.
+        opacity: 0; // opacity for animation.
         transition: all .6s cubic-bezier(.68, -.15, .265, .55);
     }
 
-    &__checkbox:checked ~ &__nav {
+    &__checkbox:checked~&__nav {
         opacity: 1;
         width: 100%;
     }
@@ -71,6 +67,7 @@
     }
 
     &__link {
+
         &:link,
         &:visited {
             display: inline-block;
@@ -81,8 +78,7 @@
             text-decoration: none;
             text-transform: uppercase;
             background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
-            // background-size can be used to animate/move background images.
-            background-size: 230%;
+            background-size: 230%; // background-size can be used to animate/move background images.
             transition: all .4s;
 
             span {
@@ -142,16 +138,16 @@
         top: 1rem;
     }
 
-    &__checkbox:checked + &__button &__icon {
+    &__checkbox:checked+&__button &__icon {
         background-color: transparent;
     }
 
-    &__checkbox:checked + &__button &__icon::before {
+    &__checkbox:checked+&__button &__icon::before {
         top: 0;
         transform: rotate(-135deg);
     }
 
-    &__checkbox:checked + &__button &__icon::after {
+    &__checkbox:checked+&__button &__icon::after {
         top: 0;
         transform: rotate(135deg);
     }

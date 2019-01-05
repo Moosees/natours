@@ -4,43 +4,39 @@
     }
 
     &__input {
-        font-size: 1.5rem;
-        // browsers sets default for form fonts, we can get around that
-        font-family: inherit;
-        // same thing with font color
-        color: inherit;
-        // more padding on the sides usually look better, good start point
-        padding: 1.5rem 2rem;
-        border-radius: 2px;
+        font-size: $font-size-small;
+        font-family: inherit; // browsers sets default for form fonts, we can get around that.
+        color: inherit; // same thing with font color.
+        padding: 1.5rem 2rem; // more padding on the sides usually look better, good start point.
+        border-radius: $border-radius-small;
         background-color: rgba($color-white, .5);
         border: none;
-        // transparent border on unfocused inputs so they don't bump down other elements when focused
-        border-bottom: 3px solid transparent;
+        border-bottom: 3px solid transparent; // transparent border on unfocused inputs so they don't bump down other elements when focused.
         width: 90%;
         display: block;
         transition: border-bottom .3s;
 
-        // browsers sets a default outline for form inputs
+        // browsers sets a default outline for form inputs.
         &:focus {
             outline: none;
-            // we still need a indicator of what is focused
+            // we still need a indicator of what is focused.
             box-shadow: 0 1rem 2rem rgba($color-black, .1);
             border-bottom: 3px solid $color-primary;
         }
 
-        // invalid is a pseudoclass that only targets inputs with invalid inputs. Pseudoclasses can be stacked
+        // invalid is a pseudoclass that only targets inputs with invalid inputs. Pseudoclasses can be stacked.
         &:focus:invalid {
             border-bottom: 3px solid $color-secondary-dark;
         }
 
-        // pseudoelement that targets the placeholder in inputs
+        // pseudoelement that targets the placeholder in inputs.
         &::-webkit-input-placeholder {
             color: $color-grey-dark-2;
         }
     }
 
     &__label {
-        font-size: 1.6rem;
+        font-size: $font-size-default;
         margin-left: 2rem;
         margin-top: .4rem;
         display: block;
@@ -48,10 +44,10 @@
     }
 
     // placeholder-shown only selects elements when HTML placeholder is visible.
-    // + means adjacent sibling selector, selecting the sibling after the selected HTML element
-    &__input:placeholder-shown + &__label {
+    // + means adjacent sibling selector, selecting the sibling after the selected HTML element.
+    &__input:placeholder-shown+&__label {
         opacity: 0;
-        // opacity to animate, visiblily to acutally hide the element
+        // opacity to animate, visiblily to acutally hide the element.
         visibility: hidden;
         transform: translateY(-4rem);
     }
@@ -62,8 +58,7 @@
     }
 
     &__radio-input {
-        // hides the default html radio checkboxes
-        display: none;
+        display: none; // hides the default html radio checkboxes.
     }
 
     &__radio-label {
@@ -77,8 +72,7 @@
         height: 3rem;
         width: 3rem;
         border: 5px solid $color-primary;
-        // border-radius 50% for circle
-        border-radius: 50%;
+        border-radius: 50%; // border-radius 50% for circle.
         display: inline-block;
         position: absolute;
         left: 0;
@@ -100,9 +94,9 @@
         }
     }
 
-    // checked pseudoclass selects the clicked radiobutton (or checkboxes)
-    // Sibling selector again, and then selecting the child of that element
-    &__radio-input:checked + &__radio-label &__radio-button::after {
+    // checked pseudoclass selects the clicked radiobutton (or checkboxes).
+    // Sibling selector again, and then selecting the child of that element.
+    &__radio-input:checked+&__radio-label &__radio-button::after {
         opacity: 1;
     }
 }

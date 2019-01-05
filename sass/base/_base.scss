@@ -1,17 +1,17 @@
-// Browser reset without normalize.css, the * marker does not include pseudo elements, so we add those as well
+// Browser reset without normalize.css, the * marker does not include pseudo elements, so we add those as well.
 *,
 *::after,
 *::before {
     padding: 0;
     margin: 0;
-    box-sizing: inherit; // use inherited box-sizing as default for all elements, without this line box-sizing is not inherited
+    box-sizing: inherit; // use inherited box-sizing as default for all elements, without this line box-sizing is not inherited.
 }
 
 html {
-    font-size: 62.5%; // sets root font size to a easy to handle value for use with rems, 62.5% is equial to 10px if user settings is 16px (most common)
+    font-size: 62.5%; // sets root font size to a easy to handle value for use with rems, 62.5% is equial to 10px if user settings is 16px (most common).
 }
 
-// everything on body is inherited by children, better practise to use inheritance than apply on everything
+// everything on body is inherited by children, better practise to use inheritance than apply on everything.
 body {
-    box-sizing: border-box; // border-box makes borders and padding not add to the total size of elements, body box-sizing sets the default method to use
+    box-sizing: border-box; // border-box makes borders and padding not add to the total size of elements, body box-sizing sets the default method to use.
 }

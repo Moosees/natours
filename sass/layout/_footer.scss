@@ -2,7 +2,7 @@
     color: $color-grey-light-1;
     background-color: $color-grey-dark-3;
     padding: 10rem 0;
-    font-size: 1.4rem;
+    font-size: $font-size-smaller;
 
     &__logo-box {
         text-align: center;
@@ -15,8 +15,8 @@
     }
 
     &__navigation {
-        border-top: 1px solid $color-grey-dark;
-        padding-top: 2rem;
+        border-top: $border-footer;
+        padding-top: $padding-footer-border;
         display: inline-block;
     }
 
@@ -33,6 +33,7 @@
     }
 
     &__link {
+
         &:link,
         &:visited {
             color: $color-grey-light-1;
@@ -52,9 +53,9 @@
     }
 
     &__copyright {
-        border-top: 1px solid $color-grey-dark;
-        padding-top: 2rem;
-        width: 90%;
+        border-top: $border-footer;
+        padding-top: $padding-footer-border;
+        width: 85%;
         float: right;
     }
 }

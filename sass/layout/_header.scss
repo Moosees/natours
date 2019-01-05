@@ -1,24 +1,27 @@
 .header {
-    height: 95vh; // vh means % of viewport
-    background-image: linear-gradient(to right bottom, rgba($color-primary-light, .8), rgba($color-primary-dark, .8)), url(../img/hero.jpg); // we can use several backgrounds at the same time, first mentioned is on top
+    height: 95vh; // vh means % of viewport.
+    background-image: linear-gradient(to right bottom, rgba($color-primary-light, .8), rgba($color-primary-dark, .8)), url(../img/hero.jpg); // we can use several backgrounds at the same time, first mentioned is on top.
     background-size: cover;
-    background-position: top; // makes top of image align with top of viewport
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); // use a polygon to crop the size of the background
-    position: relative; // .header is parent of .logo-box, so we use relative posisition to be able to use it as a reference when positioning the children
+    background-position: top; // makes top of image align with top of viewport.
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); // use a polygon to crop the size of the background.
+    position: relative; // .header is parent of .logo-box, so we use relative posisition to be able to use it as a reference when positioning the children.
+
     &__logo-box {
-        position: absolute; // the point of origin for top, left.. when using absolute position is the parent element, if it isn't also absolute
+        position: absolute; // the point of origin for top, left.. when using absolute position is the parent element, if it isn't also absolute.
         top: 4rem;
         left: 4rem;
     }
+
     &__logo {
         height: 3.5rem;
     }
+
     &__text-box {
-        // magic trick to center elements (or 40% from top in this case)
+        // magic trick to center elements (or 40% from top in this case).
         position: absolute;
         top: 40%;
         left: 50%;
         transform: translate(-50%, -50%);
-        text-align: center; // centers the button (it's inline-block)
+        text-align: center; // centers the button (it's inline-block).
     }
 }

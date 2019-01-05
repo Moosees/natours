@@ -3,7 +3,7 @@
     margin: 0 auto;
     box-shadow: 0 3rem 6rem rgba($color-black, .1);
     background-color: rgba($color-white, .6);
-    border-radius: 3px;
+    border-radius: $border-radius-default;
     padding: 6rem;
     padding-left: 9rem;
     font-size: $font-size-default;
@@ -12,18 +12,12 @@
     // anti skew magic doesn't work when we already have a transform, so we need to add it to all children separately.
 
     &__shape {
-        // shapoe outside needs dimensions and float to work.
+        // shape-outside needs dimensions and float to work.
         width: 15rem;
         height: 15rem;
         float: left;
-        // radius at horizontal pos vertical pos.
-        // translates to 7.5rem at center.
-        -webkit-shape-outside: circle(50% at 50% 50%);
-        shape-outside: circle(50% at 50% 50%);
-        // shape outside sets the shape that the other elements float around.
-        // transform works better than margin to avoid messing with flow of HTML.
-        transform: translateX(-3rem) skewX(10deg);
-        -webkit-clip-path: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%); // shape outside sets the shape that the other elements float around. syntax is radius at horizontal pos radius at vertical pos. translates to 7.5rem at center.
+        transform: translateX(-3rem) skewX(10deg); // transform works better than margin to avoid messing with flow of HTML.
         clip-path: circle(50% at 50% 50%);
         position: relative;
     }
@@ -46,7 +40,7 @@
         transform: translate(-50%, 10%);
         color: $color-white;
         text-transform: uppercase;
-        font-size: 1.7rem;
+        font-size: $font-size-big;
         text-align: center;
         opacity: 0;
         transition: all .5s ease;
@@ -60,7 +54,6 @@
 
     &:hover &__img {
         transform: translateX(-4rem) scale(1);
-        // higher blur px value for more blur
-        filter: blur(3px) brightness(80%);
+        filter: blur(3px) brightness(80%); // higher blur px value for more blur.
     }
 }

@@ -22,9 +22,10 @@
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
     }
-    
+
     // STYLING
     &__close {
+
         &:link,
         &:visited {
             color: $color-grey-dark;
@@ -34,8 +35,7 @@
             font-size: 3rem;
             text-decoration: none;
             display: inline-block;
-            // line height 1 to remove space at top.
-            line-height: 1;
+            line-height: 1; // line height 1 to remove space at top/center vertically.
             transition: all .2s;
         }
 
@@ -51,12 +51,9 @@
         box-shadow: $box-shadow-default;
         border-radius: $border-radius-default;
         opacity: 0;
-        // translate from mixin will get overwritten so we need translate.
-        transform: translate(-50%, -50%) scale(.2);
-        // second number is delay.
-        transition: all .4s .2s ease;
-        // parent is a table. Or at least behaves like one.
-        display: table;
+        transform: translate(-50%, -50%) scale(.2); // transform from mixin will get overwritten so we need translate.
+        transition: all .4s .2s ease; // second number is delay.
+        display: table; // parent is a table. Or at least behaves like one.
     }
 
     &__left {
@@ -66,10 +63,8 @@
 
     &__right {
         width: 66.666666%;
-        // children are table cells.
-        display: table-cell;
-        // the table behavoiur lets us line up both boxes with same height.
-        vertical-align: middle;
+        display: table-cell; // children are table cells.
+        vertical-align: middle; // the table behavoiur lets us line up both boxes with same height.
         padding: 3rem 5rem;
     }
 
@@ -79,15 +74,11 @@
     }
 
     &__text {
-        font-size: $font-size-small;
+        font-size: $font-size-smaller;
         margin-bottom: 4rem;
-        // splits the text up in x columns.
-        column-count: 2;
-        // space between the columns.
-        column-gap: 4rem;
-        // line between the columns.
-        column-rule: 1px solid $color-grey-light-2;
-        // automatically inserts hyphens (needs html lang="<language>")
-        hyphens: auto;
+        column-count: 2; // splits the text up in x columns.
+        column-gap: 4rem; // space between the columns.
+        column-rule: 1px solid $color-grey-light-2; // line between the columns.
+        hyphens: auto; // automatically inserts hyphens (needs html lang="<language>").
     }
 }

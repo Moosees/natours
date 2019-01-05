@@ -1,4 +1,4 @@
-// Colors
+// COLOR
 $color-primary: #7ed56f;
 $color-primary-light: #55c57a;
 $color-primary-dark: #28b485;
@@ -13,14 +13,21 @@ $color-white: #fff;
 $color-black: #000;
 $color-grey-light-1: #f7f7f7;
 $color-grey-light-2: #eee;
-// Grid
+// GRID
 $grid-width: 114rem; // 1140px is a good standard. max-width instead of grid to allow flexibility for smaller viewports.
 $gutter-vertical: 8rem;
 $gutter-horizontal: 6rem;
-// Font
+// FONT
+$font-size-big: 1.7rem;
 $font-size-default: 1.6rem;
-$font-size-small: 1.4rem;
-// Border Radius
+$font-size-small: 1.5rem;
+$font-size-smaller: 1.4rem;
+// BORDER RADIUS
 $border-radius-default: 3px;
-// Box Shadow
+$border-radius-small: 2px;
+// BOX SHADOW
 $box-shadow-default: 0 1.5rem 4rem rgba($color-black, .15);
+// BORDER
+$border-footer: 1px solid $color-grey-dark;
+// PADDING
+$padding-footer-border: 2rem;

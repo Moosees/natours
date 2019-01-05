@@ -14,7 +14,7 @@
         left: 0;
         width: 100%; // makes both sides the same size.
         backface-visibility: hidden; // hides the back side of the cards.
-        border-radius: 3px;
+        border-radius: $border-radius-default;
         overflow: hidden; // to stop images from overflowing outside the parent box (the rounded corners).
         box-shadow: $box-shadow-default;
 
@@ -40,13 +40,11 @@
     }
 
     &:hover &__side--front {
-        // Front side rotates half of a full rotation.
-        transform: rotateY(-180deg);
+        transform: rotateY(-180deg); // Front side rotates half of a full rotation.
     }
 
     &:hover &__side--back {
-        // Back side rotates back to zero rotation.
-        transform: rotateY(0);
+        transform: rotateY(0); // Back side rotates back to zero rotation.
     }
 
     // FRONT SIDE STYLING
@@ -54,11 +52,10 @@
         background-size: cover;
         height: 23rem;
         background-blend-mode: screen; // Blends the image with the gradient.
-        -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
         clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 
         &--1 {
-            background-image: url(../img/nat-5.jpg), 
+            background-image: url(../img/nat-5.jpg),
                 linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
         }
 
@@ -87,7 +84,6 @@
 
     &__heading-span {
         padding: 1rem 1.5rem;
-        -webkit-box-decoration-break: clone;
         box-decoration-break: clone; // makes both lines act as separate entities (one css box for each line).
 
         &--1 {
@@ -113,7 +109,7 @@
 
             li {
                 text-align: center;
-                font-size: 1.5rem;
+                font-size: $font-size-small;
                 padding: 1rem;
 
                 &:not(:last-child) {

@@ -10,8 +10,8 @@
     background-size: cover;
     transform: skewY(-7deg) translateY(-11.5rem);
 
+    // > for direct child, * for all. Direct child is used so we don't skew the grandchildren.
     &>* {
-        // > for direct child, * for all. Direct child is used so we don't skew the grandchildren.
         transform: skewY(7deg);
     }
 }
@@ -39,8 +39,7 @@
         rgba($color-white, .9) 50%,
         transparent 50%),
         url(../img/nat-10.jpg);
-    // cover and 100% gives same result.
-    background-size: 100%;
+    background-size: 100%; // cover and 100% gives same result.
     border-radius: $border-radius-default;
     box-shadow: $box-shadow-default;
 
