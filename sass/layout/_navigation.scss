@@ -1,4 +1,5 @@
 .navigation {
+    // NAVIGATION MENU
     &__checkbox {
         display: none;
     }
@@ -15,6 +16,9 @@
         border-radius: 50%;
         z-index: 3000;
         box-shadow: 0 1rem 3rem rgba($color-black, .1);
+        // centering the nav button lines.
+        text-align: center;
+        cursor: pointer;
     }
 
     &__background {
@@ -94,5 +98,61 @@
             transform: translateX(1rem);
             color: $color-primary;
         }
+    }
+
+    // NAVIGATION ICON
+    &__icon {
+        // the icon is one line, the before pseudo is one line and the after pseudo is the third line.
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &,
+        &::before,
+        &::after {
+            width: 3rem;
+            height: 2px;
+            background-color: $color-grey-dark-3;
+            display: inline-block;
+            transition: all .4s ease;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+        }
+
+        &::before {
+            top: -.8rem;
+        }
+
+        &::after {
+            top: .8rem;
+        }
+    }
+
+    // hover animations for the top and bottom lines.
+    &__button:hover &__icon::before {
+        top: -1rem;
+    }
+
+    &__button:hover &__icon::after {
+        top: 1rem;
+    }
+
+    &__checkbox:checked + &__button &__icon {
+        background-color: transparent;
+    }
+
+    &__checkbox:checked + &__button &__icon::before {
+        top: 0;
+        transform: rotate(-135deg);
+    }
+
+    &__checkbox:checked + &__button &__icon::after {
+        top: 0;
+        transform: rotate(135deg);
     }
 }
