@@ -1,3 +1,14 @@
+/*
+$breakpoint argument chioces:
+- phone
+- tab-port
+- tab-land
+- big-desk
+
+1em = 16px.
+
+@media rems and ems are not affected by css, they derive from the browser. Best practice is to use ems for media queries. If we use pixels, media queries risk breaking if user has changed default font size in their browser.
+*/
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -44,6 +55,21 @@
 
 html {
   font-size: 62.5%;
+}
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
 }
 
 body {
