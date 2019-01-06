@@ -732,6 +732,19 @@ body {
   font-size: 1.6rem;
   transform: skewX(-10deg);
 }
+@media (max-width: 56.25em) {
+  .story {
+    width: 100%;
+    transform: skewX(-7deg);
+    padding: 4rem;
+    padding-left: 6rem;
+  }
+}
+@media (max-width: 37.5em) {
+  .story {
+    transform: skewX(-4deg);
+  }
+}
 .story__shape {
   width: 15rem;
   height: 15rem;
@@ -741,6 +754,16 @@ body {
   clip-path: circle(50% at 50% 50%);
   position: relative;
 }
+@media (max-width: 56.25em) {
+  .story__shape {
+    transform: translateX(-3rem) skewX(8deg);
+  }
+}
+@media (max-width: 37.5em) {
+  .story__shape {
+    transform: translateX(-3rem) skewX(4deg);
+  }
+}
 .story__img {
   height: 100%;
   transform: translateX(-4rem) scale(1.4);
@@ -749,6 +772,16 @@ body {
 }
 .story__text {
   transform: skewX(10deg);
+}
+@media (max-width: 56.25em) {
+  .story__text {
+    transform: skewX(8deg);
+  }
+}
+@media (max-width: 37.5em) {
+  .story__text {
+    transform: skewX(4deg);
+  }
 }
 .story__caption {
   position: absolute;
