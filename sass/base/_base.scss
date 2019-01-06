@@ -27,4 +27,9 @@ html {
 // everything on body is inherited by children, better practise to use inheritance than apply on everything.
 body {
     box-sizing: border-box; // border-box makes borders and padding not add to the total size of elements, body box-sizing sets the default method to use.
+    padding: 3rem; // padding is not inherited.
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
 }

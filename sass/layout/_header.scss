@@ -6,6 +6,18 @@
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); // use a polygon to crop the size of the background.
     position: relative; // .header is parent of .logo-box, so we use relative posisition to be able to use it as a reference when positioning the children.
 
+    @include respond(tab-land) {
+        clip-path: polygon(0 0, 100% 0, 100% 81vh, 0 100%);
+    }
+
+    @include respond(tab-port) {
+        clip-path: polygon(0 0, 100% 0, 100% 83vh, 0 100%);
+    }
+
+    @include respond(phone) {
+        clip-path: polygon(0 0, 100% 0, 100% 86vh, 0 100%);
+    }
+
     &__logo-box {
         position: absolute; // the point of origin for top, left.. when using absolute position is the parent element, if it isn't also absolute.
         top: 4rem;
