@@ -45,7 +45,7 @@ $breakpoint argument chioces:
         };
     }
     @if $breakpoint == tab-land {
-        @media (max-width: 75em) { // 1200px.
+        @media (max-width: 74.9375em) { // 1199px.
             @content
         };
     }

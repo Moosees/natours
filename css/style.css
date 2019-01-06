@@ -61,7 +61,7 @@ html {
     font-size: 75%;
   }
 }
-@media (max-width: 75em) {
+@media (max-width: 74.9375em) {
   html {
     font-size: 56.25%;
   }
@@ -307,7 +307,6 @@ body {
 }
 
 .card {
-  -moz-perspective: 150rem;
   perspective: 150rem;
   position: relative;
   height: 52rem;
@@ -327,8 +326,11 @@ body {
 .card__side--front {
   background-color: #fff;
 }
-.card__side--back {
-  transform: rotateY(180deg);
+@media (min-width: 75em) {
+  .card__side--back {
+    z-index: -1;
+    transform: rotateY(180deg);
+  }
 }
 .card__side--back--1 {
   background-image: linear-gradient(to right bottom, #ffb900, #ff7730);
@@ -339,11 +341,13 @@ body {
 .card__side--back--3 {
   background-image: linear-gradient(to right bottom, #2998ff, #5643fa);
 }
-.card:hover .card__side--front {
-  transform: rotateY(-180deg);
-}
-.card:hover .card__side--back {
-  transform: rotateY(0);
+@media (min-width: 75em) {
+  .card:hover .card__side--front {
+    transform: rotateY(-180deg);
+  }
+  .card:hover .card__side--back {
+    transform: rotateY(0);
+  }
 }
 .card__picture {
   background-size: cover;
@@ -420,6 +424,53 @@ body {
 .card__price-value {
   font-size: 6rem;
   font-weight: 100;
+}
+@media (max-width: 74.9375em) {
+  .card {
+    height: auto;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  }
+  .card__side {
+    height: auto;
+    position: relative;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .card__side--back {
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+  }
+}
+@media (max-width: 74.9375em) and (max-width: 56.25em) {
+  .card__side--back {
+    clip-path: polygon(0 13%, 100% 0, 100% 100%, 0 100%);
+  }
+}
+@media (max-width: 74.9375em) {
+  .card__details {
+    padding: 0 1rem;
+  }
+}
+@media (max-width: 74.9375em) {
+  .card__cta {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    width: 100%;
+    padding: 5rem 4rem;
+  }
+}
+@media (max-width: 74.9375em) {
+  .card__price-box {
+    margin-bottom: 3rem;
+  }
+}
+@media (max-width: 74.9375em) {
+  .card__price-value {
+    font-size: 4rem;
+  }
 }
 
 .composition {
@@ -803,7 +854,7 @@ body {
     margin-bottom: 6rem;
   }
 }
-@media (max-width: 75em) {
+@media (max-width: 74.9375em) {
   .row {
     padding: 0 2rem;
   }
@@ -824,7 +875,7 @@ body {
 .row [class^=col-]:not(:last-child) {
   margin-right: 6rem;
 }
-@media (max-width: 75em) {
+@media (max-width: 74.9375em) {
   .row [class^=col-]:not(:last-child) {
     margin-right: 2rem;
   }
@@ -843,7 +894,7 @@ body {
 .row .col-1-of-2 {
   width: calc((100% - 6rem) / 2);
 }
-@media (max-width: 75em) {
+@media (max-width: 74.9375em) {
   .row .col-1-of-2 {
     width: calc((100% - 2rem) / 2);
   }
@@ -851,7 +902,7 @@ body {
 .row .col-1-of-3 {
   width: calc((100% - 6rem * 2) / 3);
 }
-@media (max-width: 75em) {
+@media (max-width: 74.9375em) {
   .row .col-1-of-3 {
     width: calc((100% - 2rem * 2) / 3);
   }
@@ -859,7 +910,7 @@ body {
 .row .col-1-of-4 {
   width: calc((100% - 6rem * 3) / 4);
 }
-@media (max-width: 75em) {
+@media (max-width: 74.9375em) {
   .row .col-1-of-4 {
     width: calc((100% - 2rem * 3) / 4);
   }
@@ -873,7 +924,7 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative;
 }
-@media (max-width: 75em) {
+@media (max-width: 74.9375em) {
   .header {
     clip-path: polygon(0 0, 100% 0, 100% 81vh, 0 100%);
   }

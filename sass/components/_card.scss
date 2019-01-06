@@ -1,6 +1,5 @@
 .card {
     // FUNCTIONALITY
-    -moz-perspective: 150rem;
     perspective: 150rem; // needs high number to work for some reason.
     position: relative;
     height: 52rem; // parent needs height because of position absolute children.
@@ -23,7 +22,10 @@
         }
 
         &--back {
-            transform: rotateY(180deg); // makes the "back side" the "front side".
+            @include respond(desktop) {
+                z-index: -1;
+                transform: rotateY(180deg); // makes the "back side" the "front side" (only on desktop or bigger). 
+            }
 
             &--1 {
                 background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
@@ -39,12 +41,14 @@
         }
     }
 
-    &:hover &__side--front {
-        transform: rotateY(-180deg); // Front side rotates half of a full rotation.
-    }
-
-    &:hover &__side--back {
-        transform: rotateY(0); // Back side rotates back to zero rotation.
+    @include respond(desktop) {
+        &:hover &__side--front {
+            transform: rotateY(-180deg); // Front side rotates half of a full rotation.
+        }
+        
+        &:hover &__side--back {
+            transform: rotateY(0); // Back side rotates back to zero rotation.
+        }
     }
 
     // FRONT SIDE STYLING
@@ -142,5 +146,50 @@
     &__price-value {
         font-size: 6rem;
         font-weight: 100;
+    }
+
+    // SMALL VIEWPORTS
+    @include respond(tab-land) {
+        height: auto;
+        background-color: $color-white;
+        border-radius: $border-radius-default;
+        box-shadow: $box-shadow-default;
+
+        &__side {
+            height: auto;
+            position: relative;
+            border-radius: 0;
+            box-shadow: none;
+
+            &--back {
+                clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+
+                @include respond(tab-port) {
+                    clip-path: polygon(0 13%, 100% 0, 100% 100%, 0 100%);
+                }
+            }
+        }
+
+        // FRONT SIDE STYLING
+        &__details {
+            padding: 0 1rem;
+        }
+
+        &__cta {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0, 0);
+            width: 100%;
+            padding: 5rem 4rem;
+        }
+
+        &__price-box {
+            margin-bottom: 3rem;
+        }
+
+        &__price-value {
+            font-size: 4rem;
+        }
     }
 }
