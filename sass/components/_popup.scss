@@ -1,6 +1,6 @@
 .popup {
-    height: 100vh;
-    width: 100%;
+    height: 100%;
+    width: 100vw;
     position: fixed;
     top: 0;
     left: 0;
@@ -54,11 +54,27 @@
         transform: translate(-50%, -50%) scale(.2); // transform from mixin will get overwritten so we need translate.
         transition: all .4s .2s ease; // second number is delay.
         display: table; // parent is a table. Or at least behaves like one.
+
+        @include respond(tab-port) {
+            width: 85%;
+        }
+
+        @include respond(phone) {
+            width: 98%;
+        }
     }
 
     &__left {
         width: 33.333333%;
         display: table-cell;
+
+        @include respond(tab-port) {
+            width: 25%;
+        }
+
+        @include respond(phone) {
+            width: 15%;
+        }
     }
 
     &__right {
@@ -66,19 +82,47 @@
         display: table-cell; // children are table cells.
         vertical-align: middle; // the table behavoiur lets us line up both boxes with same height.
         padding: 3rem 5rem;
+
+        @include respond(tab-land) {
+            padding: 2rem 3rem;
+        }
+
+        @include respond(tab-port) {
+            width: 75%;
+            padding: 2rem 2rem;
+        }
+
+        @include respond(phone) {
+            width: 85%;
+            padding: 1rem .5rem;
+        }
     }
 
     &__img {
         display: block;
         width: 100%;
+        height: 35vh;
+        object-fit: cover;
+
+        @include respond(phone) {
+            width: 85%;
+        }
     }
 
     &__text {
         font-size: $font-size-smaller;
-        margin-bottom: 4rem;
+        margin-bottom: 2rem;
         column-count: 2; // splits the text up in x columns.
         column-gap: 4rem; // space between the columns.
         column-rule: 1px solid $color-grey-light-2; // line between the columns.
         hyphens: auto; // automatically inserts hyphens (needs html lang="<language>").
+
+        @include respond(tab-land) {
+            column-gap: 2rem;
+        }
+
+        @include respond(tab-port) {
+            column-count: 1;
+        }
     }
 }

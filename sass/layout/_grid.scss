@@ -4,6 +4,18 @@
 
     &:not(:last-child) {
         margin-bottom: $gutter-vertical;
+
+        @include respond(tab-port) {
+            margin-bottom: $gutter-vertical-small;
+        }
+    }
+
+    @include respond(tab-land) {
+        padding: 0 2rem;
+    }
+
+    @include respond(tab-port) {
+        max-width: $grid-width-small;
     }
 
     @include clearfix;
@@ -14,18 +26,43 @@
 
         &:not(:last-child) {
             margin-right: $gutter-horizontal;
+
+            @include respond(tab-land) {
+                margin-right: $gutter-horizontal-small;
+            }
+
+            @include respond(tab-port) {
+                margin-right: 0;
+                margin-bottom: $gutter-vertical-small;
+            }
+        }
+
+        @include respond(tab-port) {
+            width: 100% !important;
         }
     }
 
     .col-1-of-2 {
         width: calc((100% - #{$gutter-horizontal}) / 2); // calc is a native css function, so we can mix units without problems.
+
+        @include respond(tab-land) {
+            width: calc((100% - #{$gutter-horizontal-small}) / 2);
+        }
     }
 
     .col-1-of-3 {
         width: calc((100% - #{$gutter-horizontal} * 2) / 3);
+
+        @include respond(tab-land) {
+            width: calc((100% - #{$gutter-horizontal-small} * 2) / 3);
+        }
     }
 
     .col-1-of-4 {
         width: calc((100% - #{$gutter-horizontal} * 3) / 4);
+
+        @include respond(tab-land) {
+            width: calc((100% - #{$gutter-horizontal-small} * 3) / 4);
+        }
     }
 }

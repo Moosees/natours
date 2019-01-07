@@ -15,10 +15,48 @@
     color: transparent; // shows the background-image through the text.
 }
 
-// 
 @mixin center-horizontal-vertical {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+/*
+$breakpoint argument chioces:
+- phone
+- tab-port
+- tab-land
+- big-desk
+
+1em = 16px.
+
+@media rems and ems are not affected by css, they derive from the browser. Best practice is to use ems for media queries. If we use pixels, media queries risk breaking if user has changed default font size in their browser.
+*/
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) { // 600px.
+            @content
+        };
+    }
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) { // 900px.
+            @content
+        };
+    }
+    @if $breakpoint == tab-land {
+        @media (max-width: 74.9375em) { // 1199px.
+            @content
+        };
+    }
+    @if $breakpoint == desktop {
+        @media (min-width: 75em) { // 1200px.
+            @content
+        };
+    }
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) { // 1800px.
+            @content
+        };
+    }
 }

@@ -9,6 +9,17 @@
     font-size: $font-size-default;
     transform: skewX(-10deg);
 
+    @include respond(tab-port) {
+        width: 100%;
+        transform: skewX(-7deg);
+        padding: 4rem;
+        padding-left: 6rem;
+    }
+
+    @include respond(phone) {
+        transform: skewX(-4deg);
+    }
+
     // anti skew magic doesn't work when we already have a transform, so we need to add it to all children separately.
 
     &__shape {
@@ -20,6 +31,14 @@
         transform: translateX(-3rem) skewX(10deg); // transform works better than margin to avoid messing with flow of HTML.
         clip-path: circle(50% at 50% 50%);
         position: relative;
+
+        @include respond(tab-port) {
+            transform: translateX(-3rem) skewX(8deg);
+        }
+
+        @include respond(phone) {
+            transform: translateX(-3rem) skewX(4deg);
+        }
     }
 
     &__img {
@@ -31,6 +50,14 @@
 
     &__text {
         transform: skewX(10deg);
+
+        @include respond(tab-port) {
+            transform: skewX(8deg);
+        }
+
+        @include respond(phone) {
+            transform: skewX(4deg);
+        }
     }
 
     &__caption {

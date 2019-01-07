@@ -8,10 +8,28 @@
 }
 
 html {
-    font-size: 62.5%; // sets root font size to a easy to handle value for use with rems, 62.5% is equial to 10px if user settings is 16px (most common).
+    font-size: 62.5%; // sets root font size to a easy to handle value for use with rems, 62.5% is equial to 10px if user settings is 16px (most common, 10/16).
+
+    @include respond(big-desktop) {
+        font-size: 75%; // 1rem = 12px (12/16).
+    }
+
+    @include respond(tab-land) {
+        font-size: 56.25%; // 1rem = 9px (9/16).
+    }
+
+    @include respond(tab-port) {
+        // also applies to phone.
+        font-size: 50%; // 1rem = 8px (8/16).
+    }
 }
 
 // everything on body is inherited by children, better practise to use inheritance than apply on everything.
 body {
     box-sizing: border-box; // border-box makes borders and padding not add to the total size of elements, body box-sizing sets the default method to use.
+    padding: 3rem; // padding is not inherited.
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
 }
