@@ -94,12 +94,12 @@
                         <!-- 300w = 300px width, 
                         sizes define breakpoints with default at the end.
                         we get the breakpoints by dividing the current width of the image by the current size of the viewport. 
-                        for example at 900px vw the image is 900*0.2=180px.
+                        for example at 900px (56.25em) vw the image is 900*0.2=180px.
                         Px density is automatically taken into account.
                         src included in case of browsers that don't support srcset. -->
-                        <img srcset="../img/nat-1.jpg 300w, ../img/nat-1-large.jpg 1000w" alt="Nature Photo 1" class="composition__photo composition__photo--p1" sizes="(max-width: 1200px) 25vw, (max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px" src="../img-nat-1-large.jpg">
-                        <img srcset="../img/nat-2.jpg 300w, ../img/nat-2-large.jpg 1000w" alt="Nature Photo 2" class="composition__photo composition__photo--p2" sizes="(max-width: 1200px) 25vw, (max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px" src="../img-nat-2-large.jpg">
-                        <img srcset="../img/nat-3.jpg 300w, ../img/nat-3-large.jpg 1000w" alt="Nature Photo 3" class="composition__photo composition__photo--p3" sizes="(max-width: 1200px) 25vw, (max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px" src="../img-nat-3-large.jpg">
+                        <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w" alt="Nature Photo 1" class="composition__photo composition__photo--p1" sizes="(max-width: 75em) 25vw, (max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 18.75em" src="img-nat-1-large.jpg">
+                        <img srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w" alt="Nature Photo 2" class="composition__photo composition__photo--p2" sizes="(max-width: 75em) 25vw, (max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 18.75em" src="img-nat-2-large.jpg">
+                        <img srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w" alt="Nature Photo 3" class="composition__photo composition__photo--p3" sizes="(max-width: 75em) 25vw, (max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 18.75em" src="img-nat-3-large.jpg">
                     </div>
                 </div>
             </div>
@@ -262,8 +262,8 @@
         <section class="section-stories">
             <div class="bg-video">
                 <video class="bg-video__content" autoplay muted loop>
-                    <source src="../img/video.mp4" type="video/mp4">
-                    <source src="../img/video.webm" type="video/webm">
+                    <source src="img/video.mp4" type="video/mp4">
+                    <source src="img/video.webm" type="video/webm">
                     Your browser is not supported.
                 </video>
             </div>
@@ -275,7 +275,7 @@
             <div class="row">
                 <div class="story">
                     <figure class="story__shape">
-                        <img class="story__img" src="../img/nat-8.jpg" alt="Person on a tour">
+                        <img class="story__img" src="img/nat-8.jpg" alt="Person on a tour">
                         <figcaption class="story__caption">Mary Smith</figcaption>
                     </figure>
                     <div class="story__text">
@@ -291,7 +291,7 @@
             <div class="row">
                 <div class="story">
                     <figure class="story__shape">
-                        <img class="story__img" src="../img/nat-9.jpg" alt="Person on a tour">
+                        <img class="story__img" src="img/nat-9.jpg" alt="Person on a tour">
                         <figcaption class="story__caption">Jack Wilson</figcaption>
                     </figure>
                     <div class="story__text">
@@ -360,9 +360,9 @@
             <div class="footer__logo-box">
                 <picture class="footer__logo">
                     <!-- 37.5rem = 600px -->
-                    <source srcset="../img/logo-green-small-1x.png 1x, ../img/logo-green-small-2x.png 2x" media="(max-width: 37.5rem)">
+                    <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x" media="(max-width: 37.5rem)">
                     <!-- 1x for low px density screens, 2x for high px density screens -->
-                    <img srcset="../img/logo-green-1x.png 1x, ../img/logo-green-2x.png 2x" alt="Full Logo" src="../img/logo-green-2x.png">
+                    <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full Logo" src="img/logo-green-2x.png">
                 </picture>
             </div>
             <div class="row">
@@ -398,8 +398,8 @@
             <div class="popup__content">
                 <a href="#section-tours" class="popup__close">&times;</a>
                 <div class="popup__left">
-                    <img src="../img/nat-8.jpg" alt="Tour photo" class="popup__img">
-                    <img src="../img/nat-9.jpg" alt="Tour photo" class="popup__img">
+                    <img src="img/nat-8.jpg" alt="Tour photo" class="popup__img">
+                    <img src="img/nat-9.jpg" alt="Tour photo" class="popup__img">
                 </div>
                 <div class="popup__right">
                     <h2 class="heading-secondary u-margin-bottom-small">
