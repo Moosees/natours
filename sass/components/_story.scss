@@ -27,10 +27,11 @@
         width: 15rem;
         height: 15rem;
         float: left;
-        shape-outside: circle(50% at 50% 50%); // shape outside sets the shape that the other elements float around. syntax is radius at horizontal pos radius at vertical pos. translates to 7.5rem at center.
         transform: translateX(-3rem) skewX(10deg); // transform works better than margin to avoid messing with flow of HTML.
-        clip-path: circle(50% at 50% 50%);
         position: relative;
+        overflow: hidden;
+        border-radius: 50%; // clip path is troublesome with broswers so we use border radius and overflow hidden instead in this case.
+        shape-outside: circle(50% at 50% 50%); // shape outside sets the shape that the other elements float around. syntax is radius at horizontal pos radius at vertical pos. translates to 7.5rem at center.
 
         @include respond(tab-port) {
             transform: translateX(-3rem) skewX(8deg);

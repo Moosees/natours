@@ -10,6 +10,13 @@
     opacity: 0;
     visibility: hidden;
     transition: all .3s;
+    
+
+    @supports (backdrop-filter: blur(10px)) {
+        // filters that apply to the element behind the selected element.
+        backdrop-filter: blur(10px);
+        background-color: rgba($color-black, .2);
+    }
 
     // POPUP FUNCTIONALITY
     // a href that targets the popup id, will revert when we select another target.
