@@ -5,7 +5,7 @@
     background-position: top; // makes top of image align with top of viewport.
     position: relative; // .header is parent of .logo-box, so we use relative posisition to be able to use it as a reference when positioning the children.
 
-    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    @supports (clip-path: polygon(0 0)) {
         height: 95vh;
         clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); // use a polygon to crop the size of the background.
     }
