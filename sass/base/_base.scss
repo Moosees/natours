@@ -33,3 +33,9 @@ body {
         padding: 0;
     }
 }
+
+// pseudo for user selection on website. 
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}

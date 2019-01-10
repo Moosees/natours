@@ -22,9 +22,9 @@
         }
 
         &--back {
-            @include respond(desktop) {
+            @include respond(hover) {
                 z-index: -1;
-                transform: rotateY(180deg); // makes the "back side" the "front side" (only on desktop or bigger). 
+                transform: rotateY(180deg); // makes the "back side" the "front side" (only on desktop or bigger with hover enabled). 
             }
 
             &--1 {
@@ -41,13 +41,13 @@
         }
     }
 
-    @include respond(desktop) {
+    @include respond(hover) {
         &:hover &__side--front {
             transform: rotateY(-180deg); // Front side rotates half of a full rotation.
         }
         
         &:hover &__side--back {
-            transform: rotateY(0); // Back side rotates back to zero rotation.
+            transform: rotateY(0); // Stop rotation at back side.
         }
     }
 
